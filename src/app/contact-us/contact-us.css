@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@layer components {
+  /* ContactUs.css - Styling for Contact Us page */
+
+  .contact-page {
+    @apply max-w-[1200px] mx-auto px-4 py-8;
+  }
+  
+  /* Main container with flex layout */
+  .contact-container {
+    @apply flex gap-8 mb-12;
+  }
+  
+  /* Contact information section */
+  .contact-info {
+    @apply flex-1 bg-[#f8f9fa] p-8 rounded-lg;
+  }
+  
+  .contact-info h1 {
+    @apply text-[#1e6f5c] text-[2.2rem] mt-0 mb-6;
+  }
+  
+  .contact-info > p {
+    @apply mb-8 leading-relaxed text-[#4a4a4a];
+  }
+  
+  /* Contact details items */
+  .contact-details {
+    @apply mb-8;
+  }
+  
+  .contact-item {
+    @apply flex mb-6;
+  }
+  
+  .contact-icon {
+    @apply w-[50px] h-[50px] bg-[#1e6f5c] rounded-full flex items-center justify-center mr-4 text-white text-[1.2rem];
+  }
+  
+  .contact-text h3 {
+    @apply m-0 mb-2 text-[#1e6f5c] text-[1.2rem];
+  }
+  
+  .contact-text p {
+    @apply m-0 text-[#4a4a4a];
+  }
+  
+  /* Social media links */
+  .social-links {
+    @apply flex gap-4;
+  }
+  
+  .social-icon {
+    @apply w-10 h-10 bg-[#1e6f5c] rounded-full flex items-center justify-center text-white no-underline transition-colors duration-300 hover:bg-[#154c3f];
+  }
+  
+  /* Form container */
+  .contact-form-container {
+    @apply flex-1 bg-white rounded-lg shadow-md p-8;
+  }
+  
+  /* Form styles */
+  .contact-form h2 {
+    @apply text-[#1e6f5c] mt-0 mb-6 text-center;
+  }
+  
+  .form-group {
+    @apply mb-6;
+  }
+  
+  .form-group label {
+    @apply block mb-2 text-[#4a4a4a] font-medium;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    @apply w-full py-3 px-3 border border-[#ddd] rounded text-base focus:outline-none focus:border-[#1e6f5c] focus:shadow-[0_0_0_2px_rgba(30,111,92,0.2)];
+  }
+  
+  /* Submit button */
+  .submit-button {
+    @apply w-full py-4 px-4 bg-[#1e6f5c] text-white border-none rounded font-semibold text-base cursor-pointer transition-colors duration-300 hover:bg-[#154c3f] disabled:bg-[#95a5a6] disabled:cursor-not-allowed;
+  }
+  
+  /* Success message */
+  .success-message {
+    @apply text-center p-8;
+  }
+  
+  .success-icon {
+    @apply text-[3rem] text-[#1e6f5c] mb-4;
+  }
+  
+  .success-message h2 {
+    @apply text-[#1e6f5c] mb-4;
+  }
+  
+  .success-message p {
+    @apply mb-8 text-[#4a4a4a];
+  }
+  
+  .reset-button {
+    @apply py-3 px-6 bg-[#1e6f5c] text-white border-none rounded font-semibold cursor-pointer transition-colors duration-300 hover:bg-[#154c3f];
+  }
+  
+  /* Map container */
+  .map-container {
+    @apply mb-12;
+  }
+  
+  .map-container h2 {
+    @apply text-[#1e6f5c] mb-4 text-center;
+  }
+  
+  .map {
+    @apply rounded-lg overflow-hidden shadow-md;
+  }
+  
+  /* Error message styling */
+  .error-message {
+    @apply bg-[#f8d7da] text-[#721c24] p-4 rounded mb-6 border border-[#f5c6cb];
+  }
+  
+  /* Responsive design */
+  @media (max-width: 992px) {
+    .contact-container {
+      @apply flex-col;
+    }
+    
+    .contact-info,
+    .contact-form-container {
+      @apply w-full;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .contact-info h1 {
+      @apply text-[1.8rem];
+    }
+    
+    .contact-form h2 {
+      @apply text-[1.5rem];
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .contact-item {
+      @apply flex-col items-center text-center;
+    }
+    
+    .contact-icon {
+      @apply mr-0 mb-4;
+    }
+    
+    .social-links {
+      @apply justify-center;
+    }
+  }
+}

@@ -1,0 +1,209 @@
+/* AddEvents.css - Styling for the Add Events page */
+
+.add-events-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    color: #333;
+  }
+  
+  /* Hero Map Section */
+  .ae-hero {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .ae-map-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Main Content Section */
+  .ae-content {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  
+  .ae-content h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+  
+  /* Form Container */
+  .ae-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #b5d99c; /* Light green background */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ae-form-container h2 {
+    color: #1e6f5c;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  /* Form Styling */
+  .ae-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .ae-form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .ae-form-row {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .ae-form-row .ae-form-group {
+    flex: 1;
+  }
+  
+  .ae-form label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #1e6f5c;
+  }
+  
+  .ae-form input,
+  .ae-form textarea {
+    padding: 0.8rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: white;
+  }
+  
+  .ae-form input:focus,
+  .ae-form textarea:focus {
+    outline: none;
+    border-color: #1e6f5c;
+    box-shadow: 0 0 0 2px rgba(30, 111, 92, 0.2);
+  }
+  
+  .ae-submit-button {
+    background-color: #1e6f5c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .ae-submit-button:hover {
+    background-color: #154c3f;
+  }
+  
+  .ae-submit-button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+  }
+  
+  /* Success Message Styling */
+  .ae-success-message {
+    background-color: #b5d99c;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .ae-success-message h2 {
+    color: #1e6f5c;
+    margin-top: 0;
+  }
+  
+  .ae-success-message p {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  
+  .ae-submit-another {
+    background-color: #1e6f5c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ae-submit-another:hover {
+    background-color: #154c3f;
+  }
+  
+  .ae-error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #f5c6cb;
+  }
+  
+  .map-loading {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .ae-form-row {
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    
+    .ae-form-container {
+      padding: 1.5rem;
+    }
+    
+    .ae-hero {
+      height: 200px;
+    }
+    
+    .ae-content h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .ae-content h1 {
+      font-size: 1.8rem;
+    }
+    
+    .ae-form-container h2 {
+      font-size: 1.3rem;
+    }
+    
+    .ae-form input,
+    .ae-form textarea {
+      padding: 0.6rem;
+    }
+  }

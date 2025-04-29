@@ -1,0 +1,245 @@
+@import 'tailwindcss';
+
+@layer components {
+  /* About page */
+  .about-page {
+    @apply max-w-[1200px] mx-auto p-0 text-[#333];
+  }
+
+  /* Hero Section */
+  .about-hero {
+    @apply flex relative h-[300px] mb-12 overflow-hidden;
+  }
+
+  .about-hero-content {
+    @apply bg-[#5c7d99] w-1/2 flex items-center justify-start py-8 px-16 z-10;
+  }
+
+  .about-hero-content h1 {
+    @apply text-white text-[2.5rem] m-0;
+  }
+
+  .about-hero-image {
+    @apply absolute right-0 w-3/5 h-full overflow-hidden rounded-lg;
+  }
+
+  .about-hero-image img {
+    @apply w-full h-full object-cover;
+  }
+
+  /* History & Technology Sections (Cards) */
+  .about-history,
+  .about-technology {
+    @apply mb-8;
+  }
+
+  .about-card {
+    @apply bg-[#b5d99c] p-8 rounded-lg mb-8;
+  }
+
+  .about-card p {
+    @apply m-0 leading-[1.7] text-[1.1rem] text-center;
+  }
+
+  /* Mission Section */
+  .about-mission {
+    @apply flex gap-8 mb-12 items-center;
+  }
+
+  .about-mission-image {
+    @apply flex-1 rounded-lg overflow-hidden;
+  }
+
+  .about-mission-image img {
+    @apply w-full h-auto block;
+  }
+
+  .about-mission-content {
+    @apply flex-2;
+  }
+
+  .about-mission-content h2 {
+    @apply text-[#333] text-[1.8rem] mt-0 mb-4;
+  }
+
+  .about-mission-content p {
+    @apply leading-[1.7] text-[1.1rem];
+  }
+
+  /* Vision Section */
+  .about-vision {
+    @apply flex gap-8 mb-12 items-center;
+  }
+
+  .about-vision-content {
+    @apply flex-2;
+  }
+
+  .about-vision-content h2 {
+    @apply text-[#333] text-[1.8rem] mt-0 mb-4;
+  }
+
+  .about-vision-content p {
+    @apply leading-[1.7] text-[1.1rem];
+  }
+
+  .about-vision-image {
+    @apply flex-1 rounded-lg overflow-hidden;
+  }
+
+  .about-vision-image img {
+    @apply w-full h-auto block;
+  }
+
+  /* Team Section */
+  .about-team {
+    @apply mb-12;
+  }
+
+  .about-team h2 {
+    @apply text-center text-[2rem] mb-6 text-[#333];
+  }
+
+  .about-team-card {
+    @apply bg-[#5c7d99] rounded-lg p-8 text-white text-center flex flex-col items-center;
+  }
+
+  .about-team-card p {
+    @apply leading-[1.7] text-[1.1rem] mb-6 max-w-[800px];
+  }
+
+  .about-team-button {
+    @apply inline-block bg-white text-[#5c7d99] py-3 px-6 rounded font-bold transition-all duration-300 ease-in-out hover:bg-[#f0f0f0] hover:-translate-y-[3px];
+  }
+
+  /* Partners Section */
+  .about-partners {
+    @apply mb-12;
+  }
+
+  .about-partners h2 {
+    @apply text-center text-[2rem] mb-6 text-[#333];
+  }
+
+  .partner-card {
+    @apply flex bg-[#b5d99c] rounded-lg p-8 mb-6 items-center;
+  }
+
+  .partner-logo {
+    @apply flex-1 pr-8 flex justify-center;
+  }
+
+  .partner-logo img {
+    @apply max-w-full max-h-[120px] object-contain;
+  }
+
+  .partner-content {
+    @apply flex-3;
+  }
+
+  .partner-content p {
+    @apply m-0 leading-[1.7] text-[1.1rem];
+  }
+
+  /* Explore Work Section */
+  .about-explore {
+    @apply flex mb-12 bg-[#b5d99c] rounded-lg overflow-hidden;
+  }
+
+  .about-explore-image {
+    @apply flex-1 h-[400px];
+  }
+
+  .about-explore-image img {
+    @apply w-full h-full object-cover;
+  }
+
+  .about-explore-content {
+    @apply flex-1 p-8 flex flex-col justify-center;
+  }
+
+  .about-explore-content h2 {
+    @apply text-[#333] text-[1.8rem] mt-0 mb-4;
+  }
+
+  .about-explore-content p {
+    @apply leading-[1.7] text-[1.1rem] mb-8;
+  }
+
+  .about-explore-buttons {
+    @apply flex flex-col gap-3;
+  }
+
+  .explore-button {
+    @apply inline-block bg-[#1e6f5c] text-white py-3 px-4 rounded font-bold transition-colors duration-300 text-center hover:bg-[#154c3f];
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .about-mission,
+    .about-vision {
+      @apply flex-col;
+    }
+
+    .about-mission-image,
+    .about-vision-image {
+      @apply order-first;
+    }
+
+    .partner-card {
+      @apply flex-col;
+    }
+
+    .partner-logo {
+      @apply pr-0 pb-6;
+    }
+
+    .about-explore {
+      @apply flex-col;
+    }
+
+    .about-explore-image {
+      @apply h-[300px];
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-hero {
+      @apply flex-col h-auto;
+    }
+
+    .about-hero-content {
+      @apply w-full p-8 text-center justify-center;
+    }
+
+    .about-hero-image {
+      @apply relative w-full h-[250px];
+    }
+
+    .about-hero-content h1 {
+      @apply text-[2rem];
+    }
+  }
+
+  @media (max-width: 576px) {
+    .about-card p,
+    .about-mission-content p,
+    .about-vision-content p,
+    .about-team-card p,
+    .partner-content p,
+    .about-explore-content p {
+      @apply text-base;
+    }
+
+    .about-mission-content h2,
+    .about-vision-content h2,
+    .about-explore-content h2 {
+      @apply text-[1.5rem];
+    }
+
+    .about-team h2,
+    .about-partners h2 {
+      @apply text-[1.7rem];
+    }
+  }
+}

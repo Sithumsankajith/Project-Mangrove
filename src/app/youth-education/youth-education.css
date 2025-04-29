@@ -1,0 +1,353 @@
+/* YouthEducation.css - Styling for the Youth Education page */
+@import "tailwindcss";
+
+@layer components {
+  .youth-education-page {
+    @apply max-w-[1200px] mx-auto p-0 text-[#333] font-sans;
+  }
+  
+  /* Hero Section */
+  .ye-hero {
+    @apply flex relative h-[300px] mb-12 overflow-hidden;
+  }
+  
+  .ye-hero-content {
+    @apply bg-[#6A994E] w-1/2 flex items-center justify-center p-8 z-10;
+  }
+  
+  .ye-hero-content h1 {
+    @apply text-[#1a2601] text-[2.5rem] m-0;
+  }
+  
+  .ye-hero-image {
+    @apply absolute right-0 w-[60%] h-full overflow-hidden rounded-lg;
+  }
+  
+  .ye-hero-image img {
+    @apply w-full h-full object-cover;
+  }
+  
+  /* Benefits Section */
+  .ye-benefits {
+    @apply mb-12 px-4;
+  }
+  
+  .ye-benefits h2 {
+    @apply text-[#333] text-[1.8rem] mb-8;
+  }
+  
+  .ye-benefits-container {
+    @apply flex relative;
+  }
+  
+  .ye-benefits-column {
+    @apply flex-1 pr-8;
+  }
+  
+  .ye-benefits-divider {
+    @apply w-[2px] bg-[#6A994E] absolute top-0 bottom-0 left-1/2 -translate-x-1/2;
+  }
+  
+  .ye-benefits-list {
+    @apply list-none p-0 m-0;
+  }
+  
+  .ye-benefits-list li {
+    @apply mb-6 relative pl-5 leading-normal;
+  }
+  
+  .ye-benefits-list li::before {
+    @apply content-[''] absolute left-0 top-[8px] w-[10px] h-[10px] bg-[#6A994E];
+  }
+  
+  .ye-benefits-column h3 {
+    @apply text-[#1a2601] mt-0 mb-6;
+  }
+  
+  .ye-benefits-list li strong {
+    @apply text-[#1a2601];
+  }
+  
+  /* Data and Sustainability Section */
+  .ye-data {
+    @apply mb-12 px-4;
+  }
+  
+  .ye-data-container {
+    @apply flex relative;
+  }
+  
+  .ye-data-content, .ye-sustainability-content {
+    @apply flex-1 pr-8;
+  }
+  
+  .ye-data-divider {
+    @apply w-[2px] bg-[#6A994E] absolute top-0 bottom-0 left-1/2 -translate-x-1/2;
+  }
+  
+  .ye-data h2, .ye-sustainability-content h2 {
+    @apply text-[#333] text-[1.5rem] mb-6;
+  }
+  
+  .ye-data-list, .ye-sustainability-list {
+    @apply list-none p-0 m-0;
+  }
+  
+  .ye-data-list li, .ye-sustainability-list li {
+    @apply mb-6 relative pl-5 leading-normal;
+  }
+  
+  .ye-data-list li::before, .ye-sustainability-list li::before {
+    @apply content-[''] absolute left-0 top-[8px] w-[10px] h-[10px] bg-[#6A994E];
+  }
+  
+  .ye-data-list li strong, .ye-sustainability-list li strong {
+    @apply text-[#1a2601];
+  }
+  
+  /* Why Education Important Section */
+  .ye-why-important {
+    @apply flex mb-12 bg-[#f8f9fa] rounded-lg overflow-hidden;
+  }
+  
+  .ye-why-content {
+    @apply flex-1 p-8;
+  }
+  
+  .ye-why-content h2 {
+    @apply text-[#333] text-[1.8rem] mb-6;
+  }
+  
+  .ye-why-content p {
+    @apply mb-6 leading-relaxed;
+  }
+  
+  .ye-why-image {
+    @apply flex-1 overflow-hidden;
+  }
+  
+  .ye-why-image img {
+    @apply w-full h-full object-cover;
+  }
+  
+  .ye-button {
+    @apply inline-block bg-[#6A994E] text-white no-underline py-[0.8rem] px-6 rounded font-bold transition-colors duration-300 hover:bg-[#507a3b];
+  }
+  
+  /* Coastal Education Section */
+  .ye-coastal {
+    @apply flex mb-12 bg-white rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.1)];
+  }
+  
+  .ye-coastal-image {
+    @apply flex-1 overflow-hidden;
+  }
+  
+  .ye-coastal-image img {
+    @apply w-full h-full object-cover;
+  }
+  
+  .ye-coastal-content {
+    @apply flex-1 p-8;
+  }
+  
+  .ye-coastal-content h2 {
+    @apply text-[#333] text-[1.8rem] mb-6;
+  }
+  
+  .ye-coastal-content p {
+    @apply mb-6 leading-relaxed;
+  }
+  
+  /* Curriculum Section */
+  .ye-curriculum {
+    @apply flex mb-12 bg-[#f8f9fa] rounded-lg overflow-hidden;
+  }
+  
+  .ye-curriculum-content {
+    @apply flex-1 p-8;
+  }
+  
+  .ye-curriculum-content h2 {
+    @apply text-[#333] text-[1.8rem] mb-6;
+  }
+  
+  .ye-curriculum-content p {
+    @apply mb-6 leading-relaxed;
+  }
+  
+  .ye-curriculum-image {
+    @apply flex-1 overflow-hidden;
+  }
+  
+  .ye-curriculum-image img {
+    @apply w-full h-full object-cover;
+  }
+  
+  /* Teacher Support Section */
+  .ye-teacher-support {
+    @apply flex mb-12 bg-white rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.1)];
+  }
+  
+  .ye-teacher-image {
+    @apply flex-1 overflow-hidden;
+  }
+  
+  .ye-teacher-image img {
+    @apply w-full h-full object-cover;
+  }
+  
+  .ye-teacher-content {
+    @apply flex-1 p-8;
+  }
+  
+  .ye-teacher-content h2 {
+    @apply text-[#333] text-[1.8rem] mb-6;
+  }
+  
+  .ye-teacher-content p {
+    @apply mb-6 leading-relaxed;
+  }
+  
+  /* Mangrove Info Section */
+  .ye-mangrove-info {
+    @apply mb-12 p-8 bg-[#f8f9fa] rounded-lg;
+  }
+  
+  .ye-mangrove-content p {
+    @apply leading-relaxed m-0;
+  }
+  
+  /* Testimonial Section */
+  .ye-testimonial {
+    @apply mb-12 text-center py-12 px-8;
+  }
+  
+  .ye-quote {
+    @apply text-[1.3rem] font-bold text-[#1a2601] max-w-[800px] mx-auto mb-8 relative px-8;
+  }
+  
+  .ye-quote::before {
+    @apply content-['"'] absolute left-0 top-[-10px] text-[4rem] text-[#6A994E] opacity-30;
+  }
+  
+  .ye-quote::after {
+    @apply content-['"'] absolute right-0 bottom-[-30px] text-[4rem] text-[#6A994E] opacity-30;
+  }
+  
+  .ye-quote cite {
+    @apply block mt-4 font-normal text-[0.9rem] text-[#666];
+  }
+  
+  .ye-testimonial-dots {
+    @apply flex justify-center gap-2;
+  }
+  
+  .ye-dot {
+    @apply w-3 h-3 rounded-full bg-[#ddd] cursor-pointer;
+  }
+  
+  .ye-dot.active {
+    @apply bg-[#6A994E];
+  }
+  
+  /* CTA Section */
+  .ye-cta {
+    @apply bg-[#6A994E] py-12 px-8 text-center rounded-lg mb-12 text-white;
+  }
+  
+  .ye-cta h2 {
+    @apply text-[1.8rem] mb-4 max-w-[800px] mx-auto;
+  }
+  
+  .ye-cta p {
+    @apply mb-8 max-w-[600px] mx-auto;
+  }
+  
+  .ye-cta-buttons {
+    @apply flex justify-center gap-4;
+  }
+  
+  .ye-cta-button {
+    @apply inline-block bg-transparent text-white no-underline py-[0.8rem] px-6 rounded-full font-bold border-2 border-white transition-all duration-300 hover:bg-white hover:text-[#6A994E];
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .ye-benefits-container,
+    .ye-data-container {
+      @apply flex-col;
+    }
+    
+    .ye-benefits-divider,
+    .ye-data-divider {
+      @apply w-full h-[2px] left-0 top-1/2 -translate-y-1/2 my-8;
+    }
+    
+    .ye-benefits-column,
+    .ye-data-content,
+    .ye-sustainability-content {
+      @apply pr-0;
+    }
+    
+    .ye-why-important,
+    .ye-coastal,
+    .ye-curriculum,
+    .ye-teacher-support {
+      @apply flex-col;
+    }
+    
+    .ye-why-image,
+    .ye-coastal-image,
+    .ye-curriculum-image,
+    .ye-teacher-image {
+      @apply h-[300px];
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .ye-hero {
+      @apply flex-col h-auto;
+    }
+    
+    .ye-hero-content,
+    .ye-hero-image {
+      @apply w-full relative;
+    }
+    
+    .ye-hero-image {
+      @apply h-[200px];
+    }
+    
+    .ye-cta-buttons {
+      @apply flex-col items-center;
+    }
+    
+    .ye-cta-button {
+      @apply w-full max-w-[300px] mb-4;
+    }
+    
+    .ye-quote {
+      @apply text-[1.1rem] px-4;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .ye-hero-content h1 {
+      @apply text-[2rem];
+    }
+    
+    .ye-benefits h2,
+    .ye-why-content h2,
+    .ye-coastal-content h2,
+    .ye-curriculum-content h2,
+    .ye-teacher-content h2,
+    .ye-cta h2 {
+      @apply text-[1.5rem];
+    }
+    
+    .ye-quote {
+      @apply text-base;
+    }
+  }
+}

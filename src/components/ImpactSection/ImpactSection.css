@@ -1,0 +1,181 @@
+/* src/components/ImpactSection/ImpactSection.css */
+.impact-section {
+    padding: 5rem 0;
+    background-color: #e6f7e9;
+  }
+  
+  .impact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .impact-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .impact-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+    color: #4D7C0F;
+  }
+  
+  .impact-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  .map-container {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Project locations section */
+  .project-locations {
+    margin: 3rem 0;
+  }
+  
+  .project-locations h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .location-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .location-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .location-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .location-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #4D7C0F;
+    margin-bottom: 0.75rem;
+  }
+  
+  .location-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  
+  .location-coordinates {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #777;
+    border-top: 1px solid #eee;
+    padding-top: 0.75rem;
+  }
+  
+  .impact-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+    text-align: center;
+  }
+  
+  .impact-stat-item {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .impact-stat-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .impact-stat-item h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4D7C0F;
+    margin-bottom: 0.5rem;
+  }
+  
+  .impact-stat-item p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .impact-info {
+    max-width: 800px;
+    margin: 2rem auto 0;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 2rem;
+  }
+  
+  .impact-info p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  @media (max-width: 992px) {
+    .impact-stats {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .map-container iframe {
+      height: 400px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .impact-header h2 {
+      font-size: 1.75rem;
+    }
+    
+    .impact-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .impact-info p {
+      font-size: 1.1rem;
+    }
+    
+    .map-container iframe {
+      height: 350px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .impact-stats {
+      grid-template-columns: 1fr;
+    }
+    
+    .map-container iframe {
+      height: 300px;
+    }
+    
+    .location-cards {
+      grid-template-columns: 1fr;
+    }
+  }

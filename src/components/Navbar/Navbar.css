@@ -1,0 +1,120 @@
+/* src/components/Navbar/Navbar.css */
+.navbar {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.8rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+  
+  .logo-image {
+    width: 40px;
+    height: 40px;
+    margin-right: 0.5rem;
+    object-fit: contain;
+  }
+  
+  .navbar-links-desktop {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .nav-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: #4D7C0F;
+  }
+  
+  .nav-link-button {
+    background-color: #4D7C0F;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .nav-link-button:hover {
+    background-color: #3f6a07;
+  }
+  
+  .mobile-menu-button {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .mobile-menu-button span {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 3px;
+  }
+  
+  .navbar-links-mobile {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-links-desktop {
+      display: none;
+    }
+  
+    .mobile-menu-button {
+      display: flex;
+    }
+  
+    .navbar-links-mobile {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      width: 100%;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    .navbar-links-mobile .nav-link {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+  
+    .navbar-links-mobile .nav-link-button {
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+  }

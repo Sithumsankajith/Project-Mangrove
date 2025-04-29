@@ -1,0 +1,404 @@
+/* RestorationTraining.css - Styling for the Restoration Training page */
+@import "tailwindcss";
+
+@layer components {
+  .restoration-training-page {
+    @apply max-w-[1200px] mx-auto px-4 text-[#333];
+  }
+  
+  /* Hero Section */
+  .rt-hero {
+    @apply relative bg-[url('/images/restoration-training-hero.jpg')] bg-cover bg-center h-[500px] mb-12 rounded overflow-hidden;
+  }
+  
+  .rt-hero-overlay {
+    @apply absolute top-0 left-0 right-0 bottom-0 bg-black/50 flex flex-col justify-center items-center text-center p-8 text-white;
+  }
+  
+  .rt-hero-overlay h1 {
+    @apply text-[3rem] mb-4 shadow-[0_2px_4px_rgba(0,0,0,0.3)];
+  }
+  
+  .rt-hero-overlay p {
+    @apply text-[1.3rem] max-w-[800px] leading-relaxed;
+  }
+  
+  /* Introduction Section */
+  .rt-intro {
+    @apply flex gap-12 mb-16 items-center;
+  }
+  
+  .rt-intro-content {
+    @apply flex-1;
+  }
+  
+  .rt-intro-content h2 {
+    @apply text-[#1e6f5c] text-[2rem] mb-6 border-b-2 border-[#1e6f5c] pb-2;
+  }
+  
+  .rt-intro-content p {
+    @apply text-[1.1rem] leading-[1.7];
+  }
+  
+  .rt-intro-image {
+    @apply flex-1 rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.1)];
+  }
+  
+  .rt-intro-image img {
+    @apply w-full h-auto block transition-transform duration-300 ease-in-out;
+  }
+  
+  .rt-intro-image img:hover {
+    @apply scale-[1.02];
+  }
+  
+  /* Training Approach Section */
+  .rt-approach {
+    @apply mb-16;
+  }
+  
+  .rt-approach h2 {
+    @apply text-[#1e6f5c] text-[2rem] mb-8 text-center border-b-2 border-[#1e6f5c] pb-2;
+  }
+  
+  .rt-approach-grid {
+    @apply grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-8;
+  }
+  
+  .rt-approach-card {
+    @apply bg-white rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.1)] transition-all duration-300;
+  }
+  
+  .rt-approach-card:hover {
+    @apply -translate-y-[5px] shadow-[0_8px_16px_rgba(0,0,0,0.15)];
+  }
+  
+  .rt-approach-card img {
+    @apply w-full h-[200px] object-cover block;
+  }
+  
+  .rt-approach-card h3 {
+    @apply text-[#1e6f5c] p-[1rem_1.5rem_0.5rem] m-0 text-[1.3rem];
+  }
+  
+  .rt-approach-card p {
+    @apply p-[0_1.5rem_1.5rem] m-0 text-base leading-normal;
+  }
+  
+  /* Training Process Section */
+  .rt-process {
+    @apply mb-16 bg-[#f8f9fa] p-8 rounded-lg;
+  }
+  
+  .rt-process h2 {
+    @apply text-[#1e6f5c] text-[2rem] mb-8 text-center border-b-2 border-[#1e6f5c] pb-2;
+  }
+  
+  .rt-process-timeline {
+    @apply relative;
+  }
+  
+  .rt-process-timeline::before {
+    @apply content-[''] absolute top-0 bottom-0 left-[25px] w-[2px] bg-[#1e6f5c];
+  }
+  
+  .rt-process-step {
+    @apply flex mb-10 relative;
+  }
+  
+  .rt-process-step:last-child {
+    @apply mb-0;
+  }
+  
+  .rt-step-number {
+    @apply w-[50px] h-[50px] bg-[#1e6f5c] text-white rounded-full flex justify-center items-center text-[1.5rem] font-bold z-[1];
+  }
+  
+  .rt-step-content {
+    @apply flex-1 ml-8 bg-white rounded-lg p-6 shadow-[0_4px_8px_rgba(0,0,0,0.1)];
+  }
+  
+  .rt-step-content h3 {
+    @apply text-[#1e6f5c] mt-0 mb-4 text-[1.3rem];
+  }
+  
+  .rt-step-content p {
+    @apply mb-6 text-base leading-normal;
+  }
+  
+  .rt-step-content img {
+    @apply w-full h-auto rounded block;
+  }
+  
+  /* Training Programs Section */
+  .rt-programs {
+    @apply mb-16;
+  }
+  
+  .rt-programs h2 {
+    @apply text-[#1e6f5c] text-[2rem] mb-8 text-center border-b-2 border-[#1e6f5c] pb-2;
+  }
+  
+  .rt-programs-container {
+    @apply flex flex-col gap-8;
+  }
+  
+  .rt-program-card {
+    @apply flex bg-white rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.1)];
+  }
+  
+  .rt-program-card img {
+    @apply w-[40%] object-cover;
+  }
+  
+  .rt-program-content {
+    @apply flex-1 p-6;
+  }
+  
+  .rt-program-content h3 {
+    @apply text-[#1e6f5c] mt-0 mb-4 text-[1.5rem];
+  }
+  
+  .rt-program-content p {
+    @apply mb-6 text-base leading-normal;
+  }
+  
+  .rt-program-details {
+    @apply list-none p-0 m-0 text-[#666];
+  }
+  
+  .rt-program-details li {
+    @apply py-2 border-b border-[#e9ecef] text-[0.95rem];
+  }
+  
+  .rt-program-details li:last-child {
+    @apply border-b-0;
+  }
+  
+  /* Success Stories Section */
+  .rt-success-stories {
+    @apply mb-16;
+  }
+  
+  .rt-success-stories h2 {
+    @apply text-[#1e6f5c] text-[2rem] mb-8 text-center border-b-2 border-[#1e6f5c] pb-2;
+  }
+  
+  .rt-stories-container {
+    @apply flex flex-wrap gap-8;
+  }
+  
+  .rt-story {
+    @apply flex-1 min-w-[300px] bg-white rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.1)];
+  }
+  
+  .rt-story img {
+    @apply w-full h-[250px] object-cover block;
+  }
+  
+  .rt-story-content {
+    @apply p-6;
+  }
+  
+  .rt-story-content h3 {
+    @apply text-[#1e6f5c] mt-0 mb-4 text-[1.3rem];
+  }
+  
+  .rt-story-content p {
+    @apply mb-6 text-base leading-normal;
+  }
+  
+  .rt-read-more {
+    @apply inline-block text-[#1e6f5c] font-bold no-underline transition-colors duration-300;
+  }
+  
+  .rt-read-more:hover {
+    @apply text-[#15503f];
+  }
+  
+  /* Explore Our Work Section */
+  .explore-work {
+    @apply mb-16 text-center bg-[#f8f9fa] py-12 px-8 rounded-lg;
+  }
+  
+  .explore-work h2 {
+    @apply text-[#1e6f5c] text-[2rem] mb-6;
+  }
+  
+  .explore-work p {
+    @apply max-w-[800px] mx-auto mb-8 text-[1.1rem] leading-[1.7];
+  }
+  
+  .explore-work-image {
+    @apply mb-8 rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.1)];
+  }
+  
+  .explore-work-image img {
+    @apply w-full max-h-[400px] object-cover;
+  }
+  
+  .explore-work-buttons {
+    @apply flex justify-center gap-6;
+  }
+  
+  .ew-button {
+    @apply inline-block py-[0.8rem] px-[1.8rem] bg-[#1e6f5c] text-white rounded font-bold no-underline transition-colors duration-300 hover:bg-[#15503f];
+  }
+  
+  /* Upcoming Training Section */
+  .rt-upcoming {
+    @apply mb-16;
+  }
+  
+  .rt-upcoming h2 {
+    @apply text-[#1e6f5c] text-[2rem] mb-8 text-center border-b-2 border-[#1e6f5c] pb-2;
+  }
+  
+  .rt-calendar {
+    @apply flex flex-col gap-6;
+  }
+  
+  .rt-event {
+    @apply flex bg-white rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.1)];
+  }
+  
+  .rt-event-date {
+    @apply flex flex-col justify-center items-center bg-[#1e6f5c] text-white p-6 min-w-[120px];
+  }
+  
+  .rt-month {
+    @apply text-[1.2rem] font-bold;
+  }
+  
+  .rt-day {
+    @apply text-[2rem] font-bold leading-none my-2;
+  }
+  
+  .rt-year {
+    @apply text-base;
+  }
+  
+  .rt-event-details {
+    @apply flex-1 p-6 flex flex-col;
+  }
+  
+  .rt-event-details h3 {
+    @apply text-[#1e6f5c] mt-0 mb-2 text-[1.3rem];
+  }
+  
+  .rt-event-details p {
+    @apply mb-4 text-base leading-normal flex-grow;
+  }
+  
+  .rt-register-btn {
+    @apply self-start inline-block py-2 px-4 bg-[#1e6f5c] text-white rounded font-bold no-underline transition-colors duration-300 hover:bg-[#15503f];
+  }
+  
+  /* Call-to-Action Section */
+  .rt-cta {
+    @apply bg-[#1e6f5c] text-white py-12 px-8 text-center rounded-lg mb-12;
+  }
+  
+  .rt-cta h2 {
+    @apply text-[2rem] mb-4;
+  }
+  
+  .rt-cta p {
+    @apply text-[1.2rem] mb-8 max-w-[800px] mx-auto leading-relaxed;
+  }
+  
+  .rt-cta-buttons {
+    @apply flex justify-center gap-6;
+  }
+  
+  .rt-cta-button {
+    @apply inline-block py-[0.8rem] px-[1.8rem] text-[1.1rem] font-bold no-underline rounded transition-all duration-300;
+  }
+  
+  .rt-cta-button.primary {
+    @apply bg-white text-[#1e6f5c] hover:bg-[#e9ecef];
+  }
+  
+  .rt-cta-button.secondary {
+    @apply bg-transparent text-white border-2 border-white hover:bg-white/10;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .rt-intro {
+      @apply flex-col;
+    }
+    
+    .rt-intro-image {
+      @apply order-first;
+    }
+    
+    .rt-program-card {
+      @apply flex-col;
+    }
+    
+    .rt-program-card img {
+      @apply w-full h-[250px];
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .rt-hero-overlay h1 {
+      @apply text-[2.5rem];
+    }
+    
+    .rt-hero-overlay p {
+      @apply text-[1.1rem];
+    }
+    
+    .rt-approach-grid {
+      @apply grid-cols-1;
+    }
+    
+    .rt-stories-container {
+      @apply flex-col;
+    }
+    
+    .rt-story {
+      @apply min-w-full;
+    }
+    
+    .rt-cta-buttons {
+      @apply flex-col;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .rt-hero-overlay h1 {
+      @apply text-[2rem];
+    }
+    
+    .rt-hero-overlay p {
+      @apply text-base;
+    }
+    
+    .rt-event {
+      @apply flex-col;
+    }
+    
+    .rt-event-date {
+      @apply w-full flex-row justify-around p-4;
+    }
+    
+    .rt-month, .rt-day, .rt-year {
+      @apply m-0;
+    }
+    
+    .rt-register-btn {
+      @apply self-center w-full text-center;
+    }
+    
+    .explore-work-buttons {
+      @apply flex-col gap-4;
+    }
+    
+    .ew-button {
+      @apply w-full text-center;
+    }
+  }
+}

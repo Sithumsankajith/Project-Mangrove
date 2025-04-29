@@ -1,0 +1,64 @@
+/* src/components/PartnersSection/PartnersSection.css */
+.partners-section {
+    padding: 5rem 0;
+    background-color: #e6f0e0;
+  }
+  
+  .partners-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .partners-container h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  
+  .partners-grid {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+  
+  .partner-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 300px;
+  }
+  
+  .partner-logo {
+    height: 80px;
+    width: auto;
+    margin-bottom: 1.5rem;
+    object-fit: contain;
+  }
+  
+  .partner-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4D7C0F;
+    margin-bottom: 0.5rem;
+  }
+  
+  .partner-card p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+  }
+  
+  @media (max-width: 768px) {
+    .partners-grid {
+      gap: 3rem;
+    }
+    
+    .partner-card {
+      max-width: 250px;
+    }
+  }

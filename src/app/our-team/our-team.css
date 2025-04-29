@@ -1,0 +1,180 @@
+/* OurTeam.css - Styling for the Our Team page */
+
+.team-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* Hero Section */
+  .team-hero {
+    position: relative;
+    height: 500px;
+    margin-bottom: 3rem;
+    overflow: hidden;
+  }
+  
+  .team-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .team-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 2rem;
+    color: white;
+  }
+  
+  .team-hero-overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .team-hero-overlay p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    line-height: 1.6;
+  }
+  
+  /* Team Introduction */
+  .team-intro {
+    margin-bottom: 3rem;
+    background-color: #f8f9fa;
+    padding: 2.5rem;
+    border-radius: 8px;
+  }
+  
+  .team-intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .team-intro-content h2 {
+    color: #1e6f5c;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .team-intro-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  
+  /* Team Members Section */
+  .team-members {
+    margin-bottom: 4rem;
+  }
+  
+  .team-members h2 {
+    color: #1e6f5c;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  /* Join Our Team Section */
+  .join-team {
+    margin-bottom: 4rem;
+    background-color: #1e6f5c;
+    color: white;
+    padding: 3rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .join-team-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .join-team-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+  
+  .join-button {
+    display: inline-block;
+    background-color: white;
+    color: #1e6f5c;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .join-button:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 992px) {
+    .team-hero {
+      height: 400px;
+    }
+    
+    .team-hero-overlay h1 {
+      font-size: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .team-hero {
+      height: 350px;
+    }
+    
+    .team-hero-overlay h1 {
+      font-size: 2rem;
+    }
+    
+    .team-hero-overlay p {
+      font-size: 1.1rem;
+    }
+    
+    .team-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .team-hero {
+      height: 300px;
+    }
+    
+    .team-hero-overlay {
+      padding: 1.5rem;
+    }
+    
+    .team-hero-overlay h1 {
+      font-size: 1.8rem;
+    }
+    
+    .team-hero-overlay p {
+      font-size: 1rem;
+    }
+    
+    .team-intro,
+    .join-team {
+      padding: 2rem 1.5rem;
+    }
+    
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+  }

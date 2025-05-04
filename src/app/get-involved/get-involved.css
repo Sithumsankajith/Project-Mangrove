@@ -1,0 +1,462 @@
+/* get-involved.css - Styling for Get Involved page */
+
+/* Page Container */
+.get-involved-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    color: #333;
+  }
+  
+  /* Hero Section */
+  .gi-hero {
+    background-color: #1e6f5c;
+    border-radius: 0.5rem;
+    margin-bottom: 3rem;
+    padding: 3rem;
+    text-align: center;
+    color: white;
+  }
+  
+  .gi-hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .gi-hero-content p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Why Volunteer Section */
+  .gi-why-volunteer {
+    margin-bottom: 3rem;
+  }
+  
+  .gi-why-volunteer h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1e6f5c;
+  }
+  
+  .gi-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .gi-benefit-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .gi-benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gi-benefit-icon {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1rem;
+    color: #1e6f5c;
+  }
+  
+  .gi-benefit-card h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    color: #1e6f5c;
+  }
+  
+  .gi-benefit-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* Volunteer Opportunities Section */
+  .gi-opportunities {
+    margin-bottom: 3rem;
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+  
+  .gi-opportunities h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1e6f5c;
+  }
+  
+  .gi-opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .gi-opportunity-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gi-opportunity-card img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+  }
+  
+  .gi-opportunity-card h3 {
+    padding: 1rem 1rem 0.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #1e6f5c;
+  }
+  
+  .gi-opportunity-card p {
+    padding: 0 1rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* Volunteer Form Section */
+  .gi-volunteer-form {
+    margin-bottom: 3rem;
+  }
+  
+  .gi-form-container {
+    background-color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gi-form-container h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1e6f5c;
+  }
+  
+  .gi-form-intro {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .gi-form {
+    margin-top: 1.5rem;
+  }
+  
+  .gi-form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .gi-form-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .gi-form-row .gi-form-group {
+    flex: 1;
+    margin-bottom: 0;
+  }
+  
+  .gi-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .gi-form input[type="text"],
+  .gi-form input[type="email"],
+  .gi-form input[type="tel"],
+  .gi-form select,
+  .gi-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+  }
+  
+  .gi-form input[type="text"]:focus,
+  .gi-form input[type="email"]:focus,
+  .gi-form input[type="tel"]:focus,
+  .gi-form select:focus,
+  .gi-form textarea:focus {
+    outline: none;
+    border-color: #1e6f5c;
+    box-shadow: 0 0 0 2px rgba(30, 111, 92, 0.2);
+  }
+  
+  .gi-checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .gi-checkbox-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .gi-checkbox-item input {
+    margin-right: 0.5rem;
+  }
+  
+  .gi-submit-button {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background-color: #1e6f5c;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .gi-submit-button:hover {
+    background-color: #154c3f;
+  }
+  
+  .gi-submit-button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+  }
+  
+  /* Success Message */
+  .gi-success-message {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .gi-success-icon {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1rem;
+    color: #1e6f5c;
+  }
+  
+  .gi-success-message h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #1e6f5c;
+  }
+  
+  .gi-success-message p {
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .gi-reset-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #1e6f5c;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .gi-reset-button:hover {
+    background-color: #154c3f;
+  }
+  
+  /* Error Message */
+  .gi-error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #f5c6cb;
+  }
+  
+  /* FAQ Section */
+  .gi-faq {
+    margin-bottom: 3rem;
+  }
+  
+  .gi-faq h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1e6f5c;
+  }
+  
+  .gi-faq-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .gi-faq-item {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  .gi-faq-item h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    color: #1e6f5c;
+  }
+  
+  .gi-faq-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* Call to Action Section */
+  .gi-cta {
+    background-color: #1e6f5c;
+    color: white;
+    padding: 3rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .gi-cta h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .gi-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .gi-cta-button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: white;
+    color: #1e6f5c;
+    border-radius: 0.25rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .gi-cta-button:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 992px) {
+    .gi-benefits-grid,
+    .gi-opportunities-grid,
+    .gi-faq-list {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .gi-form-row {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .gi-checkbox-group {
+      grid-template-columns: 1fr;
+    }
+    
+    .gi-hero-content h1 {
+      font-size: 2rem;
+    }
+    
+    .gi-hero-content p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .gi-hero {
+      padding: 2rem;
+    }
+    
+    .gi-hero-content h1 {
+      font-size: 1.8rem;
+    }
+    
+    .gi-hero-content p {
+      font-size: 1rem;
+    }
+    
+    .gi-opportunity-card img {
+      height: 10rem;
+    }
+    
+    .gi-form-container {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .gi-hero {
+      padding: 1.5rem;
+    }
+    
+    .gi-hero-content h1 {
+      font-size: 1.5rem;
+    }
+    
+    .gi-why-volunteer h2,
+    .gi-opportunities h2,
+    .gi-faq h2,
+    .gi-cta h2 {
+      font-size: 1.5rem;
+    }
+    
+    .gi-form-container h2 {
+      font-size: 1.5rem;
+    }
+    
+    .gi-benefit-card,
+    .gi-opportunity-card,
+    .gi-faq-item {
+      padding: 1rem;
+    }
+    
+    .gi-form-container {
+      padding: 1rem;
+    }
+    
+    .gi-checkbox-group {
+      grid-template-columns: 1fr;
+    }
+    
+    .gi-cta {
+      padding: 1.5rem;
+    }
+  }

@@ -156,7 +156,7 @@ const Dashboard = () => {
                     <span className="field-value">{user.phone}</span>
                   </div>
                 )}
-                <button className="edit-profile-button">Edit Profile</button>
+                {/* <button className="edit-profile-button">Edit Profile</button> */}
               </div>
             </div>
           )}

@@ -46,14 +46,14 @@ const EventsList = ({ events, showViewAllButton = false }) => {
             </div>
           </div>
           
-          <div className="event-actions">
+          {/* <div className="event-actions">
             <button className="event-action-button">
               Edit
             </button>
             <button className="event-action-button">
               View Details
             </button>
-          </div>
+          </div> */}
         </div>
       ))}
       

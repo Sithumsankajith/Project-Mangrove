@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
@@ -9,30 +8,15 @@ import './admin.css';
 
 // Admin panel component
 const AdminPanel = () => {
-  const { user, isAuthenticated, loading } = useAuth();
   const [activeTab, setActiveTab] = useState('events');
   const [events, setEvents] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [contacts, setContacts] = useState([]);
+  const [volunteers, setVolunteers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   const router = useRouter();
 
-  // Redirect if not authenticated or not admin
-  useEffect(() => {
-    if (!loading) {
-      if (!isAuthenticated) {
-        router.push('/login?redirect=/admin');
-      } else if (user && user.role !== 'admin') {
-        router.push('/dashboard');
-      }
-    }
-  }, [isAuthenticated, loading, router, user]);
-
   // Fetch data based on active tab
   useEffect(() => {
-    if (!isAuthenticated || user?.role !== 'admin') return;
-
     const fetchData = async () => {
       setIsLoading(true);
       setError('');
@@ -44,21 +28,14 @@ const AdminPanel = () => {
           case 'events':
             endpoint = '/api/events';
             break;
-          case 'users':
-            endpoint = '/api/users';
-            break;
-          case 'contacts':
-            endpoint = '/api/contact';
+          case 'volunteers':
+            endpoint = '/api/volunteers';
             break;
           default:
             endpoint = '/api/events';
         }
 
-        const response = await fetch(endpoint, {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-          }
-        });
+        const response = await fetch(endpoint);
 
         if (!response.ok) {
           throw new Error('Failed to fetch data');
@@ -70,11 +47,8 @@ const AdminPanel = () => {
           case 'events':
             setEvents(data.data || []);
             break;
-          case 'users':
-            setUsers(data.data || []);
-            break;
-          case 'contacts':
-            setContacts(data.data || []);
+          case 'volunteers':
+            setVolunteers(data.data || []);
             break;
         }
       } catch (err) {
@@ -86,7 +60,7 @@ const AdminPanel = () => {
     };
 
     fetchData();
-  }, [activeTab, isAuthenticated, user]);
+  }, [activeTab]);
 
   // Format date for display
   const formatDate = (dateString) => {
@@ -100,89 +74,69 @@ const AdminPanel = () => {
     });
   };
 
-  // Handle event deletion
-  const handleDeleteEvent = async (eventId) => {
-    if (window.confirm('Are you sure you want to delete this event?')) {
-      try {
-        const response = await fetch(`/api/events/${eventId}`, {
-          method: 'DELETE',
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-          }
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to delete event');
-        }
-
-        // Update events list
-        setEvents(events.filter(event => event._id !== eventId));
-      } catch (err) {
-        console.error('Error deleting event:', err);
-        alert('Failed to delete event. Please try again.');
-      }
-    }
-  };
-
-  // Handle user deletion
-  const handleDeleteUser = async (userId) => {
-    if (window.confirm('Are you sure you want to delete this user?')) {
-      try {
-        const response = await fetch(`/api/users/${userId}`, {
-          method: 'DELETE',
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-          }
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to delete user');
-        }
-
-        // Update users list
-        setUsers(users.filter(user => user._id !== userId));
-      } catch (err) {
-        console.error('Error deleting user:', err);
-        alert('Failed to delete user. Please try again.');
-      }
-    }
-  };
-
-  // Handle marking contact as read
-  const handleMarkContactRead = async (contactId) => {
+  // Handle event status change
+  const handleEventStatusChange = async (eventId, newStatus) => {
     try {
-      const response = await fetch(`/api/contact/${contactId}`, {
+      const response = await fetch(`/api/events/${eventId}`, {
         method: 'PUT',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ isRead: true })
+        body: JSON.stringify({ status: newStatus })
       });
 
       if (!response.ok) {
-        throw new Error('Failed to update contact');
+        throw new Error('Failed to update event status');
       }
 
-      // Update contacts list
-      setContacts(contacts.map(contact => 
-        contact._id === contactId ? { ...contact, isRead: true } : contact
+      // Update events list
+      setEvents(events.map(event => 
+        event._id === eventId ? { ...event, status: newStatus } : event
       ));
     } catch (err) {
-      console.error('Error updating contact:', err);
-      alert('Failed to mark contact as read. Please try again.');
+      console.error('Error updating event status:', err);
+      alert('Failed to update event status. Please try again.');
     }
   };
 
-  // If still loading or not authenticated, show loading state
-  if (loading || !isAuthenticated || (user && user.role !== 'admin')) {
-    return (
-      <div className="admin-loading">
-        <div className="loader"></div>
-        <p>Loading admin panel...</p>
-      </div>
-    );
-  }
+  // Handle volunteer application status change
+  const handleVolunteerStatusChange = async (volunteerId, newStatus) => {
+    try {
+      const response = await fetch(`/api/volunteers/${volunteerId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ status: newStatus })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update volunteer application status');
+      }
+
+      // Update volunteers list
+      setVolunteers(volunteers.map(volunteer => 
+        volunteer._id === volunteerId ? { ...volunteer, status: newStatus } : volunteer
+      ));
+    } catch (err) {
+      console.error('Error updating volunteer status:', err);
+      alert('Failed to update volunteer application status. Please try again.');
+    }
+  };
+
+  // Get status badge class
+  const getStatusBadgeClass = (status) => {
+    switch (status) {
+      case 'pending':
+        return 'status-pending';
+      case 'approved':
+        return 'status-approved';
+      case 'rejected':
+        return 'status-rejected';
+      default:
+        return '';
+    }
+  };
 
   return (
     <>
@@ -190,7 +144,7 @@ const AdminPanel = () => {
       <div className="admin-container">
         <div className="admin-header">
           <h1>Admin Panel</h1>
-          <p>Manage events, users, and contact messages</p>
+          <p>Manage events and volunteer applications</p>
         </div>
 
         <div className="admin-tabs">
@@ -201,16 +155,10 @@ const AdminPanel = () => {
             Events
           </button>
           <button 
-            className={`admin-tab ${activeTab === 'users' ? 'active' : ''}`}
-            onClick={() => setActiveTab('users')}
+            className={`admin-tab ${activeTab === 'volunteers' ? 'active' : ''}`}
+            onClick={() => setActiveTab('volunteers')}
           >
-            Users
-          </button>
-          <button 
-            className={`admin-tab ${activeTab === 'contacts' ? 'active' : ''}`}
-            onClick={() => setActiveTab('contacts')}
-          >
-            Contact Messages
+            Volunteers
           </button>
         </div>
 
@@ -228,6 +176,17 @@ const AdminPanel = () => {
               {activeTab === 'events' && (
                 <div className="admin-events">
                   <h2>Events Management</h2>
+                  <div className="admin-filters">
+                    <div className="filter-group">
+                      <label>Filter by status:</label>
+                      <select>
+                        <option value="all">All</option>
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                      </select>
+                    </div>
+                  </div>
                   
                   {events.length === 0 ? (
                     <p className="no-data-message">No events found</p>
@@ -250,8 +209,8 @@ const AdminPanel = () => {
                               <td>{event.organizer}</td>
                               <td>{formatDate(event.date)}</td>
                               <td>
-                                <span className={`status-badge ${event.status}`}>
-                                  {event.status.charAt(0).toUpperCase() + event.status.slice(1)}
+                                <span className={`status-badge ${getStatusBadgeClass(event.status)}`}>
+                                  {event.status ? event.status.charAt(0).toUpperCase() + event.status.slice(1) : 'Pending'}
                                 </span>
                               </td>
                               <td className="action-buttons">
@@ -261,18 +220,22 @@ const AdminPanel = () => {
                                 >
                                   View
                                 </button>
-                                <button 
-                                  className="edit-button"
-                                  onClick={() => router.push(`/admin/events/edit/${event._id}`)}
-                                >
-                                  Edit
-                                </button>
-                                <button 
-                                  className="delete-button"
-                                  onClick={() => handleDeleteEvent(event._id)}
-                                >
-                                  Delete
-                                </button>
+                                {event.status === 'pending' && (
+                                  <>
+                                    <button 
+                                      className="approve-button"
+                                      onClick={() => handleEventStatusChange(event._id, 'approved')}
+                                    >
+                                      Approve
+                                    </button>
+                                    <button 
+                                      className="reject-button"
+                                      onClick={() => handleEventStatusChange(event._id, 'rejected')}
+                                    >
+                                      Reject
+                                    </button>
+                                  </>
+                                )}
                               </td>
                             </tr>
                           ))}
@@ -283,13 +246,24 @@ const AdminPanel = () => {
                 </div>
               )}
 
-              {/* Users Tab */}
-              {activeTab === 'users' && (
-                <div className="admin-users">
-                  <h2>Users Management</h2>
+              {/* Volunteers Tab */}
+              {activeTab === 'volunteers' && (
+                <div className="admin-volunteers">
+                  <h2>Volunteer Applications</h2>
+                  <div className="admin-filters">
+                    <div className="filter-group">
+                      <label>Filter by status:</label>
+                      <select>
+                        <option value="all">All</option>
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                      </select>
+                    </div>
+                  </div>
                   
-                  {users.length === 0 ? (
-                    <p className="no-data-message">No users found</p>
+                  {volunteers.length === 0 ? (
+                    <p className="no-data-message">No volunteer applications found</p>
                   ) : (
                     <div className="admin-table-container">
                       <table className="admin-table">
@@ -297,99 +271,52 @@ const AdminPanel = () => {
                           <tr>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Role</th>
-                            <th>Created</th>
+                            <th>Phone</th>
+                            <th>Applied On</th>
+                            <th>Status</th>
                             <th>Actions</th>
                           </tr>
                         </thead>
                         <tbody>
-                          {users.map(user => (
-                            <tr key={user._id}>
-                              <td>{user.name}</td>
-                              <td>{user.email}</td>
+                          {volunteers.map(volunteer => (
+                            <tr key={volunteer._id}>
+                              <td>{volunteer.name}</td>
+                              <td>{volunteer.email}</td>
+                              <td>{volunteer.phone}</td>
+                              <td>{formatDate(volunteer.createdAt)}</td>
                               <td>
-                                <span className={`role-badge ${user.role}`}>
-                                  {user.role.charAt(0).toUpperCase() + user.role.slice(1)}
+                                <span className={`status-badge ${getStatusBadgeClass(volunteer.status)}`}>
+                                  {volunteer.status ? volunteer.status.charAt(0).toUpperCase() + volunteer.status.slice(1) : 'Pending'}
                                 </span>
                               </td>
-                              <td>{formatDate(user.createdAt)}</td>
                               <td className="action-buttons">
                                 <button 
                                   className="view-button"
-                                  onClick={() => router.push(`/admin/users/${user._id}`)}
+                                  onClick={() => router.push(`/admin/volunteers/${volunteer._id}`)}
                                 >
-                                  View
+                                  View Details
                                 </button>
-                                <button 
-                                  className="edit-button"
-                                  onClick={() => router.push(`/admin/users/edit/${user._id}`)}
-                                >
-                                  Edit
-                                </button>
-                                <button 
-                                  className="delete-button"
-                                  onClick={() => handleDeleteUser(user._id)}
-                                >
-                                  Delete
-                                </button>
+                                {volunteer.status === 'pending' && (
+                                  <>
+                                    <button 
+                                      className="approve-button"
+                                      onClick={() => handleVolunteerStatusChange(volunteer._id, 'approved')}
+                                    >
+                                      Approve
+                                    </button>
+                                    <button 
+                                      className="reject-button"
+                                      onClick={() => handleVolunteerStatusChange(volunteer._id, 'rejected')}
+                                    >
+                                      Reject
+                                    </button>
+                                  </>
+                                )}
                               </td>
                             </tr>
                           ))}
                         </tbody>
                       </table>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* Contacts Tab */}
-              {activeTab === 'contacts' && (
-                <div className="admin-contacts">
-                  <h2>Contact Messages</h2>
-                  
-                  {contacts.length === 0 ? (
-                    <p className="no-data-message">No contact messages found</p>
-                  ) : (
-                    <div className="contact-messages">
-                      {contacts.map(contact => (
-                        <div 
-                          key={contact._id} 
-                          className={`contact-card ${!contact.isRead ? 'unread' : ''}`}
-                        >
-                          <div className="contact-header">
-                            <h3>{contact.subject}</h3>
-                            {!contact.isRead && (
-                              <span className="unread-badge">Unread</span>
-                            )}
-                          </div>
-                          
-                          <div className="contact-info">
-                            <p><strong>From:</strong> {contact.name} ({contact.email})</p>
-                            <p><strong>Date:</strong> {formatDate(contact.createdAt)}</p>
-                          </div>
-                          
-                          <div className="contact-message">
-                            <p>{contact.message}</p>
-                          </div>
-                          
-                          <div className="contact-actions">
-                            {!contact.isRead && (
-                              <button 
-                                className="mark-read-button"
-                                onClick={() => handleMarkContactRead(contact._id)}
-                              >
-                                Mark as Read
-                              </button>
-                            )}
-                            <a 
-                              href={`mailto:${contact.email}?subject=Re: ${contact.subject}`}
-                              className="reply-button"
-                            >
-                              Reply
-                            </a>
-                          </div>
-                        </div>
-                      ))}
                     </div>
                   )}
                 </div>

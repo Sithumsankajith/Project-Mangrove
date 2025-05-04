@@ -118,3 +118,221 @@
       text-align: center;
     }
   }
+
+  /* Navbar dropdown styles - to be added to navbar.css */
+
+/* Register dropdown container */
+.register-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Register toggle button */
+.register-toggle {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  color: #333;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.register-toggle:hover {
+  color: #4D7C0F;
+}
+
+/* Dropdown arrow icon */
+.dropdown-arrow {
+  transition: transform 0.2s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 160px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  z-index: 1001;
+  margin-top: 0.5rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dropdown menu items */
+.dropdown-item {
+  display: block;
+  padding: 0.7rem 1rem;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #4D7C0F;
+}
+
+/* Mobile register group */
+.mobile-register-group {
+  border-top: 2px solid #f0f0f0;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+/* Mobile dropdown styles */
+@media (max-width: 768px) {
+  .register-dropdown {
+    display: none; /* Hide desktop dropdown on mobile */
+  }
+  
+  .mobile-register-group {
+    width: 100%;
+  }
+  
+  .mobile-register-group .nav-link {
+    display: block;
+  }
+}
+
+/* Navbar dropdown styles - to be added to navbar.css */
+
+/* Navigation container adjustments to prevent wrapping */
+.navbar-container {
+  flex-wrap: nowrap;
+}
+
+.navbar-links-desktop {
+  flex-wrap: nowrap;
+  gap: 1rem; /* Reduce gap to fit all items */
+}
+
+/* Register dropdown container */
+.register-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Register toggle button */
+.register-toggle {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  color: #333;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  gap: 6px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.register-toggle:hover {
+  color: #4D7C0F;
+}
+
+/* Dropdown arrow icon */
+.dropdown-arrow {
+  transition: transform 0.2s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 160px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  z-index: 1001;
+  margin-top: 0.5rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dropdown menu items */
+.dropdown-item {
+  display: block;
+  padding: 0.7rem 1rem;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #4D7C0F;
+}
+
+/* Ensure nav links don't wrap */
+.nav-link {
+  white-space: nowrap;
+}
+
+/* Add Event button adjustments */
+.nav-link-button {
+  white-space: nowrap;
+  padding: 0.5rem 0.75rem; /* Slightly reduce padding */
+}
+
+/* Mobile register group */
+.mobile-register-group {
+  border-top: 2px solid #f0f0f0;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+/* Mobile dropdown styles */
+@media (max-width: 768px) {
+  .register-dropdown {
+    display: none; /* Hide desktop dropdown on mobile */
+  }
+  
+  .mobile-register-group {
+    width: 100%;
+  }
+  
+  .mobile-register-group .nav-link {
+    display: block;
+  }
+}

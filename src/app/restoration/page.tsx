@@ -284,7 +284,7 @@ const RestorationTraining: React.FC = () => {
           </p>
           <div className="rt-cta-buttons">
             <Link href="/contact-us" className="rt-cta-button primary">Contact Us</Link>
-            <Link href="/register" className="rt-cta-button secondary">Register for Training</Link>
+            <Link href="/get-involved" className="rt-cta-button secondary">Register for Training</Link>
           </div>
         </section>
       </div>

@@ -42,6 +42,7 @@ const AdminPanel = () => {
         }
 
         const data = await response.json();
+        console.log('Response data:', data); // Debugging line
 
         switch (activeTab) {
           case 'events':

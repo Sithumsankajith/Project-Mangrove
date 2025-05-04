@@ -62,7 +62,7 @@ const GetInvolved = () => {
   };
   
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     // Validation
@@ -73,12 +73,22 @@ const GetInvolved = () => {
     
     setIsLoading(true);
     setError('');
-    
-    // Simulate API call with setTimeout
-    setTimeout(() => {
-      // For now, just log the data to console and show success message
-      console.log('Volunteer data:', formData);
+
+    try {
+      // Send data to the API instead of just logging it
+      const response = await fetch('/api/volunteers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
       
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit application');
+      }
       // Set submitted state to true
       setIsSubmitted(true);
       
@@ -93,9 +103,12 @@ const GetInvolved = () => {
         availability: '',
         message: ''
       });
-      
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setError(err.message || 'Failed to submit application. Please try again.');
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
   
   return (

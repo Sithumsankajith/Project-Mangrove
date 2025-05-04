@@ -1,5 +1,5 @@
 import dbConnect from '../../../lib/mongodb';
-import Volunteer from '../../../models/Volunteer';
+import Volunteer from '../../../models/volunteer';
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -11,8 +11,10 @@ export default async function handler(req, res) {
     case 'GET':
       try {
         const volunteers = await Volunteer.find({}).sort({ createdAt: -1 });
+        console.log('Found volunteers:', volunteers.length); 
         res.status(200).json({ success: true, data: volunteers });
       } catch (error) {
+        console.error('Error fetching volunteers:', error);
         res.status(400).json({ success: false, error: error.message });
       }
       break;

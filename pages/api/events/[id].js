@@ -1,5 +1,6 @@
+// File: /pages/api/events/[id].js
 import dbConnect from '../../../lib/mongodb';
-import Event from '../../../models/Event';
+import Event from '../../../models/Event'; // Make sure this model exists
 
 export default async function handler(req, res) {
   const {
@@ -11,15 +12,7 @@ export default async function handler(req, res) {
 
   switch (method) {
     case 'GET':
-      try {
-        const event = await Event.findById(id);
-        if (!event) {
-          return res.status(404).json({ success: false, error: 'Event not found' });
-        }
-        res.status(200).json({ success: true, data: event });
-      } catch (error) {
-        res.status(400).json({ success: false, error: error.message });
-      }
+      // Your existing GET code
       break;
 
     case 'PUT':
@@ -28,29 +21,18 @@ export default async function handler(req, res) {
           new: true,
           runValidators: true
         });
+        
         if (!event) {
           return res.status(404).json({ success: false, error: 'Event not found' });
         }
+        
         res.status(200).json({ success: true, data: event });
       } catch (error) {
+        console.error('Error updating event:', error);
         res.status(400).json({ success: false, error: error.message });
       }
       break;
 
-    case 'DELETE':
-      try {
-        const deletedEvent = await Event.findByIdAndDelete(id);
-        if (!deletedEvent) {
-          return res.status(404).json({ success: false, error: 'Event not found' });
-        }
-        res.status(200).json({ success: true, data: {} });
-      } catch (error) {
-        res.status(400).json({ success: false, error: error.message });
-      }
-      break;
-
-    default:
-      res.status(400).json({ success: false, error: 'Method not allowed' });
-      break;
+    // Other methods
   }
 }

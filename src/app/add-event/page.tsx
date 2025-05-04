@@ -30,7 +30,6 @@ interface EventData {
   description: string;
   plantCount: number;
   plantSpecies: string;
-  status: string;
 }
 
 // AddEvents component
@@ -50,7 +49,6 @@ const AddEvents: React.FC = () => {
     description: '',
     plantCount: 0,
     plantSpecies: 'Mixed',
-    status: 'planned'
   });
 
   // State for location
@@ -343,7 +341,7 @@ const AddEvents: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="ae-form-group">
+                {/* <div className="ae-form-group">
                   <label htmlFor="status">Event Status:</label>
                   <select
                     id="status"
@@ -355,7 +353,7 @@ const AddEvents: React.FC = () => {
                     <option value="completed">Completed</option>
                     <option value="cancelled">Cancelled</option>
                   </select>
-                </div>
+                </div> */}
                 
                 <div className="ae-form-group">
                   <label htmlFor="description">Description:</label>

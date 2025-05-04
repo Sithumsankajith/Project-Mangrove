@@ -1,5 +1,5 @@
 import dbConnect from '../../../lib/mongodb';
-import Volunteer from '../../../models/Volunteer';
+import Volunteer from '../../../models/volunteer';
 
 export default async function handler(req, res) {
   const {
